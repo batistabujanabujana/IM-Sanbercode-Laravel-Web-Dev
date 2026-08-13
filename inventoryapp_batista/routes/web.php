@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 
-Route::get('/', [DashboardController::class, 'home']);
+// Route Home / Dashboard
+Route::get('/', [DashboardController::class, 'home'])->name('home');
 
-Route::get('/register', [FormController::class, 'register']);
+// Route Register & Welcome
+Route::get('/register', [FormController::class, 'register'])->name('register');
+Route::post('/welcome', [FormController::class, 'welcome'])->name('welcome');
 
-Route::post('/welcome', [FormController::class, 'welcome']);
+Route::get('/master', function () {
+    return view('layouts.app');
+});
