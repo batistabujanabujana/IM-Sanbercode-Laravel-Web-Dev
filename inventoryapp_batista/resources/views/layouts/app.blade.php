@@ -44,15 +44,15 @@
             </li>
             <li class="nav-small-cap">
                 <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-                <span class="hide-menu">Form</span>
+                <span class="hide-menu">Master</span>
                 </li>
                 <li class="sidebar-item">
                 <!-- Ubah href ke url register dan ganti icon/label -->
-                <a class="sidebar-link" href="{{ url('/register') }}" aria-expanded="false">
+               <a class="sidebar-link" href="{{ url('/category') }}" aria-expanded="false">
                     <span>
                     <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
                     </span>
-                    <span class="hide-menu">Register</span>
+                    <span class="hide-menu">Categories</span>
                 </a>
             </li>
             

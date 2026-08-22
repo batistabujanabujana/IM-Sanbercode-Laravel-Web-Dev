@@ -3,14 +3,42 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\CategoryController;
 
 // Route Home / Dashboard
-Route::get('/', [DashboardController::class, 'home'])->name('home');
+Route::get('/', [DashboardController::class, 'home'])
+    ->name('home');
 
 // Route Register & Welcome
-Route::get('/register', [FormController::class, 'register'])->name('register');
-Route::post('/welcome', [FormController::class, 'welcome'])->name('welcome');
+Route::get('/register', [FormController::class, 'register'])
+    ->name('register');
 
+Route::post('/welcome', [FormController::class, 'welcome'])
+    ->name('welcome');
+
+// Route Master
 Route::get('/master', function () {
     return view('layouts.app');
 });
+
+// Route CRUD Category
+Route::get('/category', [CategoryController::class, 'index'])
+    ->name('category.index');
+
+Route::get('/category/create', [CategoryController::class, 'create'])
+    ->name('category.create');
+
+Route::post('/category', [CategoryController::class, 'store'])
+    ->name('category.store');
+
+Route::get('/category/{id}', [CategoryController::class, 'show'])
+    ->name('category.show');
+
+Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])
+    ->name('category.edit');
+
+Route::put('/category/{id}', [CategoryController::class, 'update'])
+    ->name('category.update');
+
+Route::delete('/category/{id}', [CategoryController::class, 'destroy'])
+    ->name('category.destroy');
